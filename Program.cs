@@ -6,13 +6,13 @@ var bld = WebApplication.CreateBuilder();
 bld.Services
    .AddFastEndpoints()
    .SwaggerDocument(p =>
-	p.DocumentSettings = s =>
+	p.NewtonsoftSettings = s =>
 	{
-		s.SerializerSettings.ContractResolver = new DefaultContractResolver
+		s.ContractResolver = new DefaultContractResolver
 		{
 			NamingStrategy = new CamelCaseNamingStrategy()
 		};
-	}); //define a swagger document
+	});
 
 var app = bld.Build();
 app.UseFastEndpoints()
