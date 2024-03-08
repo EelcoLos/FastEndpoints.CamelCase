@@ -1,0 +1,16 @@
+@fe-camelcase_HostAddress = http://localhost:5165
+
+POST {{fe-camelcase_HostAddress}}/api/user/create
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "test",
+  "lastName": "user3",
+  "age": 17
+}
+###
+GET {{fe-camelcase_HostAddress}}/api/users
+
+###
+GET {{fe-camelcase_HostAddress}}/api/users/ed9c3007-5d80-4cd5-baa0-2c8b5a92fbc2
