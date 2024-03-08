@@ -76,7 +76,9 @@ public class GetUser : Endpoint<GetUserRequest, MyResponse>
 {
 	public override void Configure()
 	{
-		Get("/api/users/{Id}");
+		Verbs("GET");
+		Routes("/api/users/{Id}");
+		Description(x => { x.WithName("getUser"); }, clearDefaults: true); // <-------- clearDefaults here breaks the newtonsoft CamelCaseNamingStrategy
 		AllowAnonymous();
 	}
 

@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://localhost:7129"
+      "url": "http://localhost:5165"
     }
   ],
   "paths": {
@@ -67,33 +67,25 @@
         }
       }
     },
-    "/api/users/{id}": {
+    "/api/users/{Id}": {
       "get": {
         "tags": [
           "Api"
         ],
-        "operationId": "GetUser",
+        "operationId": "getUser",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "guid"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MyResponse"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -132,10 +124,6 @@
             "format": "int32"
           }
         }
-      },
-      "GetUserRequest": {
-        "type": "object",
-        "additionalProperties": false
       }
     },
     "securitySchemes": {
